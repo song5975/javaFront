@@ -1,0 +1,17 @@
+/* test7.css */
+body {
+    margin: 0px;
+    padding: 0px;
+}
+.container {
+    width: 1000px;
+    height: 100vh;
+    background-color: green;
+}
+
+.item {
+    display: grid;
+    margin: 20px;
+    padding: 10px;
+    background-color: yellow;
+}
