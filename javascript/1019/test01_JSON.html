@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test01_JSON.html</title>
+    <script>
+        'use strict';
+        /*
+            JSON변환방식 : parse(), stringify()
+            (1) Object(자바스크립트 객체)를 JSON형식의 문자열로 교체. JSON.stringify()
+            (2) JSON형식의 문자열을 Object(자바스크립트 객체)형식으로 교체, JSON.parse()
+
+        */
+
+        /* (1) Object to JSON */
+        let json = JSON.stringify(true); /* boolean 값을 string으로 */
+        console.log(json);
+        console.log("====================");
+        
+        json = JSON.stringify(['사과','배','banana', 200]); /* array 값을 string으로 */
+        console.log(json);
+        console.log("====================");
+        
+        // 자바스크립트의 객체
+        const member = {
+            name : '홍길동',
+            age : 25,
+            color : 'red',
+            gender : true,
+            birthday : new Date(),
+            // atom : function() {
+                //     console.log("성명 : ", member.name);
+                // }
+                atom : () => console.log("성명 : ", member.name)
+            }
+        console.log(member);
+        console.log("name : ", member.name);
+        console.log("gender : ", member.gender);
+        console.log("birthday : ", member.birthday);
+        console.log("birthday : ", member.birthday.getDate());
+        console.log("atom() : ", member.atom);
+        console.log("atom() : ", member.atom()); /* undefined */
+        console.log("====================");
+            
+        // 자바스크립트 객체를 JSON문자열포멧으로 변환
+        json = JSON.stringify(member); /* array 값을 string으로 */
+        console.log(json); /*{"키" : "값"} 형식으로 바뀐다. 숫자, boolean은 "" 없음, 날짜형식의 변환 => 이 데이터 형식으로 서버로 간다.*/
+        console.log("====================");
+        
+        json = JSON.stringify(member,(key, value) => {
+            // return key, value;
+            return key == 'name' ? '사용자' : value; /* 편집, 가공해서 보낼 수 있다 */
+        });
+        console.log(json);
+
+        console.log("====================");
+        console.log("====================");
+        
+        /* (2) JSON to Object : parse() */
+        let obj = JSON.parse(json); /* string을 Object(자바스크립트 객체)형식으로, 날짜는 형식이 다르다. */
+        console.log(obj);
+        console.log(obj.birthday);
+        // console.log(obj.birthday.getDate()); /* 날짜는 다시 한 번 처리하거나, 편집 */
+
+        let obj2 = JSON.parse(json, (key, value) => {
+            // return key, value;
+            return key == 'birthday' ? new Date(value) : value;
+        });
+        console.log(obj2);
+        console.log(obj2.birthday.getDate()); /* 편집해서 사용하기 */
+
+
+    </script>
+</head>
+<body>
+    <h2>JSON(Javascript Object Notation)</h2>
+    
+    <pre>
+
+    </pre>
+</body>
+</html>
