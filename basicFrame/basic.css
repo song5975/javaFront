@@ -1,0 +1,103 @@
+/* basic.css */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header, main, footer {
+    margin: 0 auto;
+}
+
+header {
+    background-color: beige;
+    margin-top: 0px;
+    padding: 0px;
+}
+
+nav {
+    border: 2px solid burlywood;
+    padding: 0px;
+    text-align: center;
+}
+
+main {
+    background-color:bisque ;
+    height: 1000px;
+    padding: 20px;
+}
+
+main article {
+    background-color: beige;
+    margin-top: 10px;
+    height: 220px;
+    padding: 10px;
+}
+
+/* 로그인 버튼의 스타일 설정 */
+input[type="button"] {
+    width: 120px;
+    height: 40px;
+    margin-right: 20px;
+}
+
+main aside {
+    border: 2px solid white;
+    padding: 5px;
+    margin-top: 10px;
+    width: 300px;
+    height: 220px;
+}
+
+footer {
+    background-color: tan;
+    padding: 00px;
+    margin-bottom: 0px;
+}
+
+footer p {
+    padding: 20px;
+    text-align: center;
+}
+
+/* <!-- ====================================================================== --> */
+
+/* CSS Reset */
+body, ul, li {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+a{
+    text-decoration: inherit;
+    color: black;
+}
+
+/* 주메뉴 */
+nav {
+    text-align: center;
+}
+nav ul {
+    background-color: beige;
+}
+nav ul li {
+    display: inline-block;
+    position: relative;
+    width: 110px;
+    padding: 10px;
+}
+nav ul li:hover {
+    background-color: gray;
+}
+
+/* 부메뉴 */
+nav ul li ul {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 0px;
+}
+nav ul li:hover ul {
+    display: block;
+}
+
+/* <!-- ====================================================================== --> */
